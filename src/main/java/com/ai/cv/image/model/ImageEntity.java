@@ -1,4 +1,4 @@
-package ai.cv.image.model;
+package com.ai.cv.image.model;
 
 import jakarta.persistence.*;
 

@@ -1,20 +1,23 @@
-package ai.cv.image;
+package com.ai.cv.image;
 
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
-@Configuration
-public class CorsConfig {
+@SpringBootApplication
+public class CVApplication {
+	public static void main(String[] args) {
+		SpringApplication.run(CVApplication.class, args);
+	}
 
 	@Bean
 	public WebMvcConfigurer corsConfigurer() {
 		return new WebMvcConfigurer() {
 			@Override
 			public void addCorsMappings(CorsRegistry registry) {
-				registry.addMapping("/**").allowedOrigins("http://localhost:3000")
-						.allowedMethods("GET", "POST", "PUT", "DELETE").allowedHeaders("*");
+				registry.addMapping("/**").allowedOrigins("*");
 			}
 		};
 	}

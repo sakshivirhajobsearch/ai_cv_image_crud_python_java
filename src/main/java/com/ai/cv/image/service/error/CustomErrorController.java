@@ -1,4 +1,4 @@
-package ai.cv.image.service.error;
+package com.ai.cv.image.service.error;
 
 import java.util.HashMap;
 import java.util.Map;

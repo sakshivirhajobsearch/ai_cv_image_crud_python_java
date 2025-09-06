@@ -1,4 +1,4 @@
-package ai.cv.image.service;
+package com.ai.cv.image.service;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -13,8 +13,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.multipart.MultipartFile;
 
-import ai.cv.image.model.ImageEntity;
-import ai.cv.image.repository.ImageRepository;
+import com.ai.cv.image.model.ImageEntity;
+import com.ai.cv.image.repository.ImageRepository;
 
 @Service
 public class ImageService {

@@ -1,4 +1,4 @@
-package ai.cv.image.config;
+package com.ai.cv.image.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;

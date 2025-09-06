@@ -1,4 +1,4 @@
-package ai.cv.image.controller;
+package com.ai.cv.image.controller;
 
 import java.io.File;
 import java.io.IOException;
