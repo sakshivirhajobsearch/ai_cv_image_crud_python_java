@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CV Application</title>
+</head>
+<body>
+    <h2>Upload Image</h2>
+    <form id="uploadForm">
+        <input type="file" id="fileInput" name="file" accept="image/*" required />
+        <button type="submit">Upload</button>
+    </form>
+
+    <h2>Uploaded Images</h2>
+    <div id="imagesList"></div>
+
+    <script>
+        const form = document.getElementById('uploadForm');
+        const imagesList = document.getElementById('imagesList');
+
+        async function fetchImages() {
+            const res = await fetch('http://localhost:8080/api/images');
+            const images = await res.json();
+            imagesList.innerHTML = '';
+            images.forEach(img => {
+                const div = document.createElement('div');
+                div.innerHTML = `
+                    <p>${img.name}</p>
+                    <img src="${img.url}" width="200"/>
+                    <button onclick="processImage(${img.id}, 'grayscale')">Grayscale</button>
+                    <button onclick="processImage(${img.id}, 'edges')">Edges</button>
+                `;
+                imagesList.appendChild(div);
+            });
+        }
+
+        async function processImage(id, method) {
+            await fetch(`http://localhost:8080/api/images/${id}/process?method=${method}`, { method: 'POST' });
+            fetchImages();
+        }
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const fileInput = document.getElementById('fileInput');
+            const file = fileInput.files[0];
+            const formData = new FormData();
+            formData.append('file', file);
+            await fetch('http://localhost:8080/api/images', { method: 'POST', body: formData });
+            fetchImages();
+        });
+
+        fetchImages();
+    </script>
+</body>
+</html>
