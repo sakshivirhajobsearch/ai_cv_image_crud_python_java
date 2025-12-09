@@ -19,7 +19,7 @@ No description provided.
 
 ## 🧠 Tech Stack Used
 
-- **Detected Technologies:** HTML, Java, Python
+- **Detected Technologies:** Python, Java (Maven/Gradle), Flask, Spring Boot, OpenCV
 - **GitHub Topics:** None
 
 ---
